@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css">
+
+  <style>
+    .circle-white {
+      display: block;
+      border-radius: 50%;
+      height: 100%;
+      width: 100;
+      margin: 0;
+      background: radial-gradient(circle at 15px 15px, #e0e0e0, #222222);
+    }
+
+    .circle-black {
+      display: block;
+      border-radius: 50%;
+      height: 100%;
+      width: 100;
+      margin: 0;
+      background: radial-gradient(circle at 15px 15px, #5c5b5b, #000);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="flex justify-center items-center items-center w-full h-screen ">
+    <div id="board" class="hidden">
+      <div>
+        <p>Juego de Bolitas</p>
+        <p>Turno: <span id="currentTurn"></span></p>
+      </div>
+      
+      <p>Bolitas Disponibles:</p>
+
+      <div  id="availableBalls" class="grid grid-cols-8">
+        <div class="flex justify-center items-center">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-4 shadow-xl  bg-amber-600 w-[400px] h-[400px] ">
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="external-grid-position-0"></div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="external-grid-position-1">
+          </div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="external-grid-position-2">
+          </div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="external-grid-position-3">
+          </div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="external-grid-position-11"></div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="internal-grid-position-0"></div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="internal-grid-position-1"></div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="external-grid-position-4"></div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="external-grid-position-10"></div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="internal-grid-position-3"></div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="internal-grid-position-2"></div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="external-grid-position-5"></div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="external-grid-position-9"></div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="external-grid-position-8"></div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="external-grid-position-7"></div>
+        </div>
+        <div class="border border-amber-300 flex justify-center items-center">
+          <div class="rounded-full border border-amber-300 shadow-inner bg-amber-700 w-10 h-10" data-group="space" id="external-grid-position-6"></div>
+        </div>
+      </div>
+    </div>
+    <div id="startGame" class="flex justify-center items-center items-center w-full h-screen bg-blue-300">
+      <button id="startGame" onclick="runGame()" class="">
+        Iniciar Juego
+      </button>
+    </div>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js'></script>
+  <script type="text/javascript" src="/js/game.js"></script>
+
+</body>
+
+</html>
+<!-- <div class="flex justify-center items-center items-center w-full h-screen bg-blue-300">
